@@ -1,0 +1,10 @@
+node_modules/
+*.log
+.DS_Store
+healthcheck.out.json
+ai-healthcheck.out.json
+.env
+.env.local
+# Files that may contain credentials - never commit
+ship-manual.ps1
+.npmrc

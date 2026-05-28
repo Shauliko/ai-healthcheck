@@ -1,0 +1,52 @@
+{
+  "name": "ai-healthcheck",
+  "version": "0.1.0",
+  "description": "Monitoring designed for your AI to read, not for you. Run smoke tests on your stack, paste the JSON into Claude or ChatGPT, ask 'what is broken?'",
+  "type": "module",
+  "bin": {
+    "ai-healthcheck": "bin/cli.js"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test --test-reporter=tap 'test/*.test.js'",
+    "smoke": "node bin/cli.js run --config examples/vercel-static.yaml --ai-json /tmp/out.json"
+  },
+  "keywords": [
+    "ai",
+    "llm",
+    "claude",
+    "chatgpt",
+    "monitoring",
+    "healthcheck",
+    "uptime",
+    "smoke-test",
+    "indie-hackers"
+  ],
+  "author": "Saul Eini <eini.shaul@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "picocolors": "^1.0.1",
+    "yaml": "^2.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shauliko/ai-healthcheck.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shauliko/ai-healthcheck/issues"
+  },
+  "homepage": "https://github.com/shauliko/ai-healthcheck#readme"
+}

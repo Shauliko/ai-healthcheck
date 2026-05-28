@@ -1,0 +1,32 @@
+# Example: static site on Vercel (no backend, no DB).
+
+site: https://mysite.com
+
+checks:
+  - name: Homepage loads
+    type: http
+    url: https://mysite.com
+    expect_status: 200
+
+  - name: 404 page renders (don't crash)
+    type: http
+    url: https://mysite.com/this-page-does-not-exist
+    expect_status: 404
+
+  - name: SSL cert valid
+    type: ssl_expiry
+    host: mysite.com
+    warn_days: 30
+    fail_days: 7
+
+  - name: robots.txt
+    type: robots
+    site: https://mysite.com
+
+  - name: sitemap
+    type: sitemap
+    site: https://mysite.com
+
+  - name: npm audit (high+)
+    type: npm_audit
+    level: high

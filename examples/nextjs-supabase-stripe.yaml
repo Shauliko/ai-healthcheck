@@ -1,0 +1,73 @@
+# Example: Next.js app on Vercel, Supabase Postgres, Stripe payments.
+# Replace example.com / env var names to match your stack.
+
+site: https://myapp.com
+
+checks:
+  # --- Pages ---
+  - name: Homepage loads
+    type: http
+    url: https://myapp.com
+    expect_status: 200
+    expect_contains: "<title>"
+
+  - name: /dashboard requires auth (302/401)
+    type: http
+    url: https://myapp.com/dashboard
+    expect_status: 302
+    follow_redirects: false
+
+  - name: API /api/health returns ok
+    type: json_shape
+    url: https://myapp.com/api/health
+    expect_status: 200
+    expect_keys: [status, db, version]
+    expect:
+      status: ok
+
+  # --- SSL ---
+  - name: SSL cert valid
+    type: ssl_expiry
+    host: myapp.com
+    warn_days: 30
+    fail_days: 7
+
+  # --- Env / config ---
+  - name: NEXT_PUBLIC_SUPABASE_URL set
+    type: env_present
+    var: NEXT_PUBLIC_SUPABASE_URL
+    min_length: 20
+
+  - name: SUPABASE_SERVICE_ROLE_KEY set
+    type: env_present
+    var: SUPABASE_SERVICE_ROLE_KEY
+    min_length: 40
+
+  - name: Stripe secret key (live)
+    type: stripe_key
+    var: STRIPE_SECRET_KEY
+    mode: live
+
+  - name: Stripe webhook secret
+    type: webhook_secret
+    var: STRIPE_WEBHOOK_SECRET
+    expect_prefix: whsec_
+
+  # --- Database ---
+  - name: Supabase connectivity (direct URL)
+    type: postgres
+    var: DATABASE_URL
+
+  # --- Security ---
+  - name: npm audit (high+)
+    type: npm_audit
+    level: high
+
+  # --- SEO ---
+  - name: robots.txt
+    type: robots
+    site: https://myapp.com
+
+  - name: sitemap
+    type: sitemap
+    site: https://myapp.com
