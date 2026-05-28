@@ -1,0 +1,44 @@
+[33mcommit f39d428c0853b338499d0838d360800080d80f04[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mv0.1.0[m[33m)[m
+Author: Saul Eini <eini.shaul@gmail.com>
+Date:   Thu May 28 12:29:41 2026 -0700
+
+    v0.1.0: initial release
+
+ .github/workflows/ci.yml             |  20 [32m++[m
+ .github/workflows/publish.yml        |  40 [32m+++[m
+ .gitignore                           |  10 [32m+[m
+ LAUNCH.md                            | 155 [32m+++++++++[m
+ LICENSE                              |  21 [32m++[m
+ README.md                            | 210 [32m+++++++++++++[m
+ SHIP.md                              |   5 [32m+[m
+ ai-healthcheck-0.1.1.tgz             | Bin [31m0[m -> [32m19424[m bytes
+ bin/cli.js                           | 113 [32m+++++++[m
+ examples/nextjs-supabase-stripe.yaml |  73 [32m+++++[m
+ examples/vercel-static.yaml          |  32 [32m++[m
+ package-lock.json                    |  44 [32m+++[m
+ package.json                         |  52 [32m+++[m
+ publish.ps1                          | 349 [32m++++++++++++++++++++[m
+ ship-gui.ps1                         | 388 [32m+++++++++++++++++++++++[m
+ ship.ps1                             | 595 [32m+++++++++++++++++++++++++++++++++++[m
+ src/checks/env_present.js            |  28 [32m++[m
+ src/checks/http.js                   |  42 [32m+++[m
+ src/checks/index.js                  |  24 [32m++[m
+ src/checks/json_shape.js             |  57 [32m++++[m
+ src/checks/npm_audit.js              |  59 [32m++++[m
+ src/checks/postgres.js               |  52 [32m+++[m
+ src/checks/robots.js                 |  38 [32m+++[m
+ src/checks/sitemap.js                |  72 [32m+++++[m
+ src/checks/ssl_expiry.js             |  53 [32m++++[m
+ src/checks/stripe_key.js             |  70 [32m+++++[m
+ src/checks/webhook_secret.js         |  34 [32m++[m
+ src/commands/init.js                 |  20 [32m++[m
+ src/commands/run.js                  |  58 [32m++++[m
+ src/config.js                        | 146 [32m+++++++++[m
+ src/env-util.js                      |  51 [32m+++[m
+ src/index.js                         |   7 [32m+[m
+ src/output/ai-json.js                | 120 [32m+++++++[m
+ src/output/json.js                   |  11 [32m+[m
+ src/output/terminal.js               |  72 [32m+++++[m
+ src/runner.js                        | 127 [32m++++++++[m
+ test/smoke.test.js                   | 115 [32m+++++++[m
+ 37 files changed, 3363 insertions(+)

@@ -18,7 +18,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "test": "node --test --test-reporter=tap 'test/*.test.js'",
+    "test": "node --test --test-reporter=tap test/smoke.test.js",
     "smoke": "node bin/cli.js run --config examples/vercel-static.yaml --ai-json /tmp/out.json"
   },
   "keywords": [
