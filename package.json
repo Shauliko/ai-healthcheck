@@ -1,6 +1,6 @@
-﻿{
+{
   "name": "ai-healthcheck",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Monitoring designed for your AI to read, not for you. Run smoke tests on your stack, paste the JSON into Claude or ChatGPT, ask 'what is broken?'",
   "type": "module",
   "bin": {
